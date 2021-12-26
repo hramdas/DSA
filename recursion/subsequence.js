@@ -15,7 +15,7 @@ function subseq(str, cur, n, sub){
         subseq(str, i+1, n, sub)
         sub = sub.split('')
         sub.pop()
-        sub = sub.join(' ')
+        sub = sub.join('')
     }
 }
 if (process.env.USERNAME === "hedga") {
