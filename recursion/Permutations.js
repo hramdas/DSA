@@ -1,29 +1,11 @@
-function hackes(num, k){
-  if(num == k) return true;
-  if(k > num) return false;
-
-  if(hackes(num, k*10) == true || hackes(num, k*20) == true) return true;
-  return false;
-}
-
 function runProgram(input) {
-    input = input.trim().split('\n').map(Number)
-    var n = +input[0]
-
-    for(let i=1; i<=n; i++){
-        var num = input[i]
-        var res = hackes(num, 1)
-        res == true ? console.log("Yes") : console.log("No")
-    }
+    input = input.trim().split('')
+    var n = +input[0].trim()
+   
 }
-
+  
 if (process.env.USERNAME === "hedga") {
-    runProgram(`5
-    1
-    2
-    10
-    25
-    200`);
+    runProgram(``);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
@@ -42,4 +24,4 @@ if (process.env.USERNAME === "hedga") {
       process.exit(0);
     });
 }
-
+  

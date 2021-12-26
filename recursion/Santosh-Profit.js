@@ -1,12 +1,3 @@
-function runProgram(input) {
-    input = input.trim().split('\n').map(Number)
-    var cases = input[0]
-   for(let i=1; i<=cases; i++){
-       var n = input[i]
-      console.log(profit(n))
-   }
-}
-
 function profit(n){
   if(n == 0) return 1
   if(n < 0) return 0
@@ -16,6 +7,15 @@ function profit(n){
   // 8            //4
   //4  //0      //0   //-4
   //0
+}
+
+function runProgram(input) {
+    input = input.trim().split('\n').map(Number)
+    var cases = input[0]
+   for(let i=1; i<=cases; i++){
+       var n = input[i]
+      console.log(profit(n))
+   }
 }
   
 if (process.env.USERNAME === "hedga") {

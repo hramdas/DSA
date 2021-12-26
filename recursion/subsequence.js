@@ -1,10 +1,3 @@
-function runProgram(input) {
-    input = input.trim().split('\n')
-    var n = +input[0].trim()
-    var str = input[1].trim()
-    var sub = ''
-    subseq(str,0, n, sub)
-}
 function subseq(str, cur, n, sub){
     if(sub.length > 0){
         console.log(sub)
@@ -18,6 +11,15 @@ function subseq(str, cur, n, sub){
         sub = sub.join('')
     }
 }
+
+function runProgram(input) {
+    input = input.trim().split('\n')
+    var n = +input[0].trim()
+    var str = input[1].trim()
+    var sub = ''
+    subseq(str,0, n, sub)
+}
+
 if (process.env.USERNAME === "hedga") {
     runProgram(`4
     abcd`);

@@ -1,3 +1,15 @@
+function xpower(x, n){
+  if(n<0) return 0
+  if(n == 0) return 1;
+
+  return (Math.pow(x, n)/fact(n)) + xpower(x, n-1)
+}
+
+function fact(n){
+if(n==0 || n==1) return 1
+return n*fact(n-1)
+}
+
 function runProgram(input) {
     input = input.trim().split(' ').map(Number)
     var x = +input[0]
@@ -6,17 +18,7 @@ function runProgram(input) {
     var res = xpower(x, n)
     console.log(res.toFixed(4))
 }
-  function xpower(x, n){
-      if(n<0) return 0
-      if(n == 0) return 1;
 
-      return (Math.pow(x, n)/fact(n)) + xpower(x, n-1)
-  }
-
-  function fact(n){
-    if(n==0 || n==1) return 1
-    return n*fact(n-1)
-  }
 
 if (process.env.USERNAME === "hedga") {
     runProgram(`4 2`);
