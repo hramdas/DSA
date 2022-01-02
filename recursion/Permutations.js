@@ -11,9 +11,6 @@ function permutation(arr, l, n){
     }
 }
 
-///1 2 3
-//
-
 function swap(arr, i, j){
     temp = arr[i]
     arr[i] = arr[j]
