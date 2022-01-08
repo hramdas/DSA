@@ -1,5 +1,3 @@
-//https://jscodesample.blogspot.com/2022/01/solve-financial-problem.html
-
 function runProgram(input) {
     input = input.trim().split('\n')
     var cases = +input[0].trim()
@@ -7,33 +5,36 @@ function runProgram(input) {
     for(let i=0; i<cases; i++){
         var n = +input[line++].trim()
         var arr = input[line++].trim().split(' ').map(Number)
+        console.log(arr, n)
+        var count = 1
+        for(let j=0; j<n; j++){
+            for(let k=j+1; k<n-1; k++){
+                if(arr[j] < arr[k]){
+                    var s = smaller(arr, k)
+                    console.log('s',arr[j] ,s)
+                    count = count * s
+                    break;
+                } else count = count * (-1)
+            }
 
-        var col = [];
-        col.push([arr[0], 1])
-        var c = 1
-        for(let k=1;k<n; k++){
-          if(c>1 && col[k-1][0] < arr[k]){
-            c++
-            col.push([arr[k], c])
-          } else if(col[k-1][0] < arr[k] ){
-                col.push([arr[k], c+1])
-                c++
-
-            } else col.push([arr[k], 1])
+            //console.log('c' ,count)
         }
-
-        var ans = col.map((e)=>e[1])
-        console.log(ans.join(' '))
+        console.log(count)
     }
-   
+}
+
+function smaller(arr, k){
+    for(let a=k+1 ; a<arr.length-1; a++){
+        if(arr[a] < arr[k]){
+            return arr[k]
+        }
+    } return -1
 }
   
 if (process.env.USERNAME === "hedga") {
-    runProgram(`2
-    7
-    100 80 60 70 60 75 85
-    5
-    3 5 0 9 8`);
+    runProgram(`1
+    6
+    5 1 6 2 5 1`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");

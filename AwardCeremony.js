@@ -1,39 +1,50 @@
-//https://jscodesample.blogspot.com/2022/01/solve-financial-problem.html
-
 function runProgram(input) {
     input = input.trim().split('\n')
     var cases = +input[0].trim()
-    var line = 1;
-    for(let i=0; i<cases; i++){
+
+    var line =1;
+    for(let i=0; i <cases; i++){
         var n = +input[line++].trim()
         var arr = input[line++].trim().split(' ').map(Number)
+        // console.log(arr,n, line)
+        
+        // var obj = {}
+        // for(var j =0; j<n; j++){
+        //     obj[arr[j]] = obj[arr[j]] ? obj[arr[j]]+=1: obj[arr[j]]=1
+        // }
 
-        var col = [];
-        col.push([arr[0], 1])
-        var c = 1
-        for(let k=1;k<n; k++){
-          if(c>1 && col[k-1][0] < arr[k]){
-            c++
-            col.push([arr[k], c])
-          } else if(col[k-1][0] < arr[k] ){
-                col.push([arr[k], c+1])
-                c++
-
-            } else col.push([arr[k], 1])
+        // console.log(obj)
+        var col = []
+        for(let a=0; a<n;a++){
+            if(arr[a] == 0){
+                col.push(0)
+            }
         }
+        for(let a=0; a<n;a++){
+            if(arr[a] == 1){
+                col.push(1)
+            }
+        }
+        for(let a=0; a<n;a++){
+            if(arr[a] == 2){
+                col.push(2)
+            }
+        }
+        console.log(col.join(' '))
 
-        var ans = col.map((e)=>e[1])
-        console.log(ans.join(' '))
+
     }
    
 }
   
 if (process.env.USERNAME === "hedga") {
-    runProgram(`2
-    7
-    100 80 60 70 60 75 85
-    5
-    3 5 0 9 8`);
+    runProgram(`3
+    1
+    2
+    3
+    2 0 1
+    4
+    2 0 2 1`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
