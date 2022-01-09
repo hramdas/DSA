@@ -2,7 +2,6 @@ let arr = [1, 3, 4, 5, 7, 8, 9]
 
 let num = 30
 
-
 // Binary Search => if arr is sorted = [log(n)] : [n log(n)]
 
 // Binary Search - Iterative
@@ -33,8 +32,6 @@ function recSearch(arr, num, l, h){
 
 }
 console.log(recSearch(arr, num, l, h))
-
-
 
 //Linear Search [n]  == if arr not sorted
 function LinSearch(arr, num){
