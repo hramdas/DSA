@@ -19,3 +19,20 @@ function bubbleSort(arr){
 };
 
 console.log(bubbleSort([5,3,8,4,6]));
+
+
+
+function reverseArray(a) {
+    for(let i=0; i<a.length; i++){
+        for(let j=0; j<a.length-i-1; j++){
+            if(a[j] > a[j+1]){
+                var temp = a[j];
+                a[j] = a[j+1]
+                a[j+1] = temp
+            }
+        }
+    }
+    //console.log(a)
+    return a
+}
+console.log(reverseArray([5,3,8,4,6]))
