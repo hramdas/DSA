@@ -23,19 +23,25 @@ function majority(arr, n) {
   }
 
   var fre = 0;
-  arr.forEach((e) => {
-    if (arr[e] == arr[index]) fre++;
-  });
+  for (let i = 0; i < n; i++) {
+    if (arr[i] == arr[index]) fre++;
+  }
   if (fre > n / 2) return arr[index];
-  return -1;
+  else return -1;
 }
 
 if (process.env.USERNAME === "hedga") {
-  runProgram(`2
-6
-1 1 1 1 2 3
-5
-1 1 2 2 3`);
+  runProgram(`5
+4
+3 9 3 7
+1
+9
+2
+7 7
+7
+8 4 2 5 3 1 7
+4
+8 1 10 3`);
 } else {
   process.stdin.resume();
   process.stdin.setEncoding("ascii");
