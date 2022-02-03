@@ -5,12 +5,23 @@ function runProgram(input) {
     for (let i=0; i<cases; i++){
         var n = +input[line++].trim();
         var arr = input[line++].trim().split(' ').map(Number)
-        var st = []
-        st.push(1)
-        for(let j=1; j<n; j++){
-            
-        }
+        var span = []
+        findSpan(arr, n, span)
+       console.log(span.join(' '))
     }
+}
+
+function findSpan(arr, n, span){
+  var st = []
+  st.push(0)
+  span[0]=1;
+  for(let j=1; j<n; j++){
+      while(st.length !==0 && arr[st[st.length-1]] <= arr[j]){
+        st.pop()
+      }
+      span[j]=st.length==0 ? j+1 : j-st[st.length-1]
+      st.push(j)
+  }
 }
   
 if (process.env.USERNAME === "hedga") {
