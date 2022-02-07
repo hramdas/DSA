@@ -3,33 +3,28 @@ function runProgram(input) {
   var n = +input[0].trim();
   var gas = input[1].trim().split(" ").map(Number);
   var cost = input[2].trim().split(" ").map(Number);
-  //   let maincost = cost;
 
-  //   var cost = cost.sort((a, b) => {
-  //     return a - b;
-  //   });
-  var arr = [];
+  let curgas = 0;
+  let start = 0;
+  let total = 0;
   for (let i = 0; i < n; i++) {
-    arr.push(Math.floor(gas[i] - cost[i]));
-  }
-  // var res = 0
-  // for(let i=0; i<n; i++){
-  //   while(arr[i]+res >= arr[i]){
-
-  //   }
-  // }
-  for (let i = 0; i < n; i++) {
-    if (arr[i] >= 0) {
-      console.log(i);
-      return;
+    curgas = curgas + (gas[i] - cost[i]);
+    total = gas[i] - cost[i];
+    if (curgas < 0) {
+      start = i + 1;
+      curgas = 0;
     }
   }
+  if (total < 0) {
+    start = -1;
+  }
+  console.log(start);
 }
 
 if (process.env.USERNAME === "hedga") {
-  runProgram(`4
-9 6 9 5
-7 6 4 7 `);
+  runProgram(`5
+1 2 3 4 5
+3 4 5 1 2`);
 } else {
   process.stdin.resume();
   process.stdin.setEncoding("ascii");
