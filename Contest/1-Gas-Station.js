@@ -9,7 +9,7 @@ function runProgram(input) {
   let total = 0;
   for (let i = 0; i < n; i++) {
     curgas = curgas + (gas[i] - cost[i]);
-    total = gas[i] - cost[i];
+    total = total + gas[i] - cost[i];
     if (curgas < 0) {
       start = i + 1;
       curgas = 0;
@@ -23,8 +23,8 @@ function runProgram(input) {
 
 if (process.env.USERNAME === "hedga") {
   runProgram(`5
-1 2 3 4 5
-3 4 5 1 2`);
+6 8 10 5 5
+8 5 7 6 8 `);
 } else {
   process.stdin.resume();
   process.stdin.setEncoding("ascii");
