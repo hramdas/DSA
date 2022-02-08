@@ -3,7 +3,6 @@ function runProgram(input) {
   var n = +input[0].trim();
   var gas = input[1].trim().split(" ").map(Number);
   var cost = input[2].trim().split(" ").map(Number);
-
   let curgas = 0;
   let start = 0;
   let total = 0;

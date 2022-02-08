@@ -25,7 +25,6 @@ function freq(arr, n) {
     } else if (obj[key] > obj[freq]) {
       freq = key;
     }
-    //console.log(obj[freq], freq);
   }
   return freq;
 }
