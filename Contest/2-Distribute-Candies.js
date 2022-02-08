@@ -46,7 +46,6 @@ function candies(arr, n) {
   }
   return res;
 }
-
 if (process.env.USERNAME === "hedga") {
   runProgram(`2
 3 
