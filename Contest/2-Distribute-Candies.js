@@ -8,6 +8,7 @@ function runProgram(input) {
     console.log(candies(arr, n));
   }
 }
+
 function candies(arr, n) {
   var res = 0;
   var pre = 0;

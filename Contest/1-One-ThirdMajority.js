@@ -6,6 +6,7 @@ function runProgram(input) {
   for (let i = 0; i < n; i++) {
     obj[arr[i]] = obj[arr[i]] ? obj[arr[i]] + 2 : (obj[arr[i]] = 1);
   }
+
   var res = [];
   for (key in obj) {
     if (obj[key] > n / 3) {

@@ -1,8 +1,10 @@
 function runProgram(input) {
   input = input.trim().split("n");
   var str = input[0].trim();
+
   console.log(substr(str, str.length));
 }
+
 function substr(str, n) {
   let len = 0;
   for (let i = 0; i < n; i++) {
@@ -16,6 +18,7 @@ function substr(str, n) {
   }
   return len;
 }
+
 function palLength(sub) {
   for (let i = 0; i < Math.floor(sub.length / 2); i++) {
     if (sub[i] !== sub[sub.length - 1 - i]) {

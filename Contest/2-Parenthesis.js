@@ -31,7 +31,7 @@ function runProgram(input) {
       }
     }
   }
-  //console.log(st);
+
   if (st.length == 0) console.log("balanced");
   else console.log("unbalanced");
 }
