@@ -1,33 +1,24 @@
 function runProgram(input) {
   input = input.trim().split("\n");
-  var cases = +input[0].trim();
-  var line = 1;
+  var n = +input[0].trim();
 
-  for (let i = 0; i < cases; i++) {
-    var c = input[line++].trim().split(".").map(Number);
-    var n = input[line++].trim().split(".").map(Number);
+  for (let i = 1; i <= n; i++) {
+    var num = +input[i].trim();
+    var res = 0;
 
-    console.log(updateCheck(c, n));
-  }
-}
-function updateCheck(c, n) {
-  var i = 0;
-  while (i < c.length && i < n.length) {
-    if (c[i] > n[i]) {
-      return "False";
-    } else {
-      i++;
+    while (num !== 0) {
+      num = num & (num << 1);
+      res++;
+      //console.log("num", num);
     }
+    console.log(res);
   }
-  return "True";
 }
 
 if (process.env.USERNAME === "hedga") {
   runProgram(`2
-12.0.1
-12.10.0
-1.1.10
-1.1.12`);
+11
+13`);
 } else {
   process.stdin.resume();
   process.stdin.setEncoding("ascii");

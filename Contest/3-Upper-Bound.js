@@ -1,24 +1,26 @@
 function runProgram(input) {
   input = input.trim().split("\n");
-  var n = +input[0].trim();
+  var [n, k] = input[0].trim().split(" ").map(Number);
   var arr = input[1].trim().split(" ").map(Number);
-  let obj = {};
-  for (let i = 0; i < n; i++) {
-    obj[arr[i]] = obj[arr[i]] ? obj[arr[i]] + 2 : (obj[arr[i]] = 1);
-  }
+  console.log(upperBound(arr, 0, n - 1, k));
+}
+function upperBound(arr, l, h, k) {
+  while (l <= h) {
+    let mid = Math.floor(l + (h - l) / 2);
 
-  var res = [];
-  for (key in obj) {
-    if (obj[key] > n / 3) {
-      res.push(key);
-    }
+    if (arr[mid] > k && arr[mid - 1] < k) return mid;
+    if (arr[mid] < k && arr[mid + 1] > k) return mid + 1;
+
+    if (arr[mid] == k && arr[mid + 1] == k) l = mid + 1;
+    else if (arr[mid] == k) return mid + 1;
+    else if (arr[mid] > k) h = mid - 1;
+    else l = mid + 1;
   }
-  console.log(res.sort().join(" "));
 }
 
 if (process.env.USERNAME === "hedga") {
-  runProgram(`5
-3 2 3 2 4`);
+  runProgram(`10 4
+0 2 4 4 5 5 7 7 9 10`);
 } else {
   process.stdin.resume();
   process.stdin.setEncoding("ascii");

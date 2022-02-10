@@ -2,14 +2,15 @@ function runProgram(input) {
   input = input.trim().split("\n");
   var cases = +input[0].trim();
   let line = 1;
+
   for (let i = 0; i < cases; i++) {
     var [n, k] = input[line++].trim().split(" ").map(Number);
     var arr = input[line++].trim().split(" ").map(Number);
     var arr = arr.sort((a, b) => a - b);
+
     console.log(closetSum(arr, n, k));
   }
 }
-
 function closetSum(arr, n, k) {
   let sum = 0;
   let l;
