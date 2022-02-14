@@ -5,53 +5,36 @@ function runProgram(input) {
   for (let i = 0; i < cases; i++) {
     let n = +input[line++].trim();
     let arr = input[line++].trim().split(" ").map(Number);
+
     console.log(maxSubProduct(arr, n));
   }
 }
 
 function maxSubProduct(arr, n) {
-  let max = 0;
-  let l = 0;
-  let h = n - 1;
-  let pro = 1;
+  let max = 1;
+  let pro = 0;
+
+  let l = 1;
+  let h = 1;
 
   for (let i = 0; i < n; i++) {
-    if (pro >= pro * arr[i]) {
-      pro = arr[i];
-    } else if (arr[i] > 0) pro = pro * arr[i];
-
-    if (pro > max) {
-      max = pro;
+    if (arr[i] > 0) {
+      max = max * arr[i];
+    } else if (arr[i] < 0 ** arr[i + 1] < 0) {
+      max = max * arr[i] * arr[i + 1];
+      i++;
+    } else if (arr[i] == 0) {
     }
   }
   return max;
-
-  //let st = [];
-  //   for (let i = 0; i < n; i++) {
-  //     for (let j = i; j < n; j++) {
-  //       let col = [];
-  //       for (let k = i; k <= j; k++) {
-  //         col.push(arr[k]);
-  //       }
-  //       st.push(col);
-  //     }
-  //   }
-
-  //   let max = 0;
-  //   for (let i = 0; i < st.length; i++) {
-  //     let proCal = 1;
-  //     st[i].forEach((e) => (proCal = proCal * e));
-  //     if (max < proCal) max = proCal;
-  //   }
-  //   return max;
 }
 
 if (process.env.USERNAME === "hedga") {
   runProgram(`2
 3
 -3 0 -2
-4
--4 -5 -1 2`);
+5
+6 -3 -10 0 2`);
 } else {
   process.stdin.resume();
   process.stdin.setEncoding("ascii");
