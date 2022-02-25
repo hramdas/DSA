@@ -31,17 +31,10 @@ function majority(arr, n) {
 }
 
 if (process.env.USERNAME === "hedga") {
-  runProgram(`5
-4
-3 9 3 7
-1
-9
-2
-7 7
-7
-8 4 2 5 3 1 7
-4
-8 1 10 3`);
+  runProgram(`1
+5
+3 2 3 2 3
+`);
 } else {
   process.stdin.resume();
   process.stdin.setEncoding("ascii");
