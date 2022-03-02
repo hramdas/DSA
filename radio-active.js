@@ -9,3 +9,5 @@ function remaining(x, n) {
   if (n == c) return x;
   return remaining(Math.round(x / 2) + y, c + 1);
 }
+
+// R H, B K, L S, G W, A A
