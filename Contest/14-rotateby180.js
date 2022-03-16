@@ -1,37 +1,40 @@
-// https://jscodesample.blogspot.com/2022/01/solve-financial-problem.html
+function rotateBy180(arr, n) {
+  for (let i = 0; i < n / 2; i++) {
+    for (let j = i; j < n; j++) {
+      let temp = arr[i][j];
+      arr[i][j] = arr[arr[n - 1 - i][n - j - i]];
+      arr[arr[n - 1 - i][n - j - i]] = temp;
+    }
+  }
+  return arr;
+}
 
 function runProgram(input) {
   input = input.trim().split("\n");
   var cases = +input[0].trim();
-  var line = 1;
+  let line = 1;
   for (let i = 0; i < cases; i++) {
-    var n = +input[line++].trim();
-    var arr = input[line++].trim().split(" ").map(Number);
-
-    var col = [];
-    col.push([arr[0], 1]);
-    var c = 1;
-    for (let k = 1; k < n; k++) {
-      if (c > 1 && col[k - 1][0] < arr[k]) {
-        c++;
-        col.push([arr[k], c]);
-      } else if (col[k - 1][0] < arr[k]) {
-        col.push([arr[k], c + 1]);
-        c++;
-      } else col.push([arr[k], 1]);
+    let n = +input[line++].trim();
+    let arr = [];
+    for (let j = 0; j < n; j++) {
+      let row = input[line++].trim().split(" ").map(Number);
+      arr.push(row);
     }
-
-    var ans = col.map((e) => e[1]);
-    console.log(ans.join(" "));
+    console.log(rotateBy180(arr, n));
   }
 }
 
 if (process.env.USERNAME === "hedga") {
   runProgram(`2
-    7
-    100 80 60 70 60 75 85
-    5
-    3 5 0 9 8`);
+3 
+1 2 3
+4 5 6
+7 8 9
+4
+1 2 3 4
+5 6 7 8
+9 0 1 2
+3 4 5 6`);
 } else {
   process.stdin.resume();
   process.stdin.setEncoding("ascii");
